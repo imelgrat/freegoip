@@ -7,7 +7,7 @@ freegoip
 
 FreeGoIP - A PHP wrapper for FreeGoIP reverse geolocation API.
 
-freegeoip.net provides a public HTTP API for software developers to search the geolocation of IP addresses. 
+freegeoip.net provides a public HTTP API for software developers to perform reverse geocoding of  domain and IP addresses. 
 It uses a database of IP addresses that are associated to cities along with other relevant information like time zone, latitude and longitude. 
 
 Developed by [Ivan Melgrati](https://twitter.com/imelgrat) 
