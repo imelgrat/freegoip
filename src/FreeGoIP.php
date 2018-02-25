@@ -11,7 +11,7 @@
 		 * @author Ivan Melgrati
 		 * @copyright 2018
 		 * @package    FreeGoIP
-		 * @version    v1.2.0
+		 * @version    v1.2.1
 		 * @link      http://www.freegeoip.net/
 		 */
 		class FreeGoIP
