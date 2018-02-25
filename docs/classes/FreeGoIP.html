@@ -3,16 +3,14 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <meta charset="utf-8"/>
-    <title>FreeGoIP - A PHP wrapper for FreeGoIP reverse geocoding API.</title>
+    <title>Documentation for GoogleMapsTimeZone</title>
     <meta name="author" content=""/>
     <meta name="description" content=""/>
-
     <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/prism.css" rel="stylesheet" media="all"/>
     <link href="../css/template.css" rel="stylesheet" media="all"/>
-    
-    <!--[if lt IE 9]>
+        <!--[if lt IE 9]>
     <script src="../js/html5.js"></script>
     <![endif]-->
     <script src="../js/jquery-1.11.0.min.js"></script>
@@ -69,22 +67,25 @@
         loadExternalCodeSnippets();
     })
 </script>
-
     <link rel="shortcut icon" href="../images/favicon.ico"/>
     <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
     <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
     <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="192x192" href="../images/apple-touch-icon-192x192.png"/>
+	<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png"/>
+	<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png"/>
+	<link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#00aba9">
+	<meta name="theme-color" content="#ffffff">
 </head>
 <body>
-
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <i class="icon-ellipsis-vertical"></i>
             </a>
-            <a class="brand" href="../index.html">FreeGoIP - A PHP wrapper for FreeGoIP reverse geocoding API.</a>
-
+            <a class="brand" href="../index.html">GoogleMapsTimeZone</a>
             <div class="nav-collapse">
                 <ul class="nav pull-right">
                                         <li class="dropdown" id="charts-menu">
@@ -106,7 +107,7 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="../reports/errors.html">
-                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
+                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">1</span>
                                 </a>
                             </li>
                             <li>
@@ -136,10 +137,10 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-64820548"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-13481200"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-64820548" class="accordion-body collapse in">
+            <div id="namespace-13481200" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                     
@@ -164,7 +165,9 @@
 
                     <h1><small>\</small>FreeGoIP</h1>
                     <p><em>A PHP wrapper for FreeGoIP reverse geocoding API.</em></p>
-                    
+                    <p>freegeoip.net is a service providing a public HTTP API for software developers to search the geolocation of IP addresses.
+It uses a database of IP addresses associated to cities along with other relevant information such as time zone, latitude and longitude.
+The freegeoip web server is free and open source but the public service limit up to 10,000 queries per hour by default. Once this limit is reached, all requests from the IP will result in HTTP 403, forbidden, until the quota is cleared.</p>
                     
                                         
                     <section id="summary">
@@ -254,8 +257,7 @@
                         
                         
                                                                             <dt>See also</dt>
-                                                                                        <dd><a href="https://github.com/imelgrat/freegoip/blob/master/LICENSE"><span class="namespace-wrapper">https://github.com/imelgrat/freegoip/blob/master/LICENSE</span></a></dd>
-                                                            <dd><a href="http://www.freegeoip.net/"><span class="namespace-wrapper">http://www.freegeoip.net/</span></a></dd>
+                                                                                    <dd><a target="_blank" href="http://www.freegeoip.net/"><div class="namespace-wrapper">http://www.freegeoip.net/</div></a></dd>
                                                     
                                                                         </dl>
                     <h2>Tags</h2>
@@ -273,7 +275,7 @@
                                 copyright
                             </th>
                             <td>
-                                                                    <p>Copyright 2016 by Ivan Melgrati</p>
+                                                                    <p>2018</p>
                                                             </td>
                         </tr>
                                             <tr>
@@ -281,7 +283,7 @@
                                 version
                             </th>
                             <td>
-                                                                    <p>v1.0.0 stable</p>
+                                                                    <p>v1.2.0</p>
                                                             </td>
                         </tr>
                                         </table>
@@ -302,7 +304,7 @@
             <article id="constant_URL_DOMAIN" class="constant">
                 <h3 class="">URL_DOMAIN</h3>
                 <pre class="signature">URL_DOMAIN</pre>
-                <p><em>URL_DOMAIN Domain portion of the freeGoIP API URL.</em></p>
+                <p><em>Domain portion of the freeGoIP API URL.</em></p>
                 
             </article>
         </div>
@@ -456,14 +458,14 @@
         <div class="span8 content class">
             <a id="property_format" name="property_format" class="anchor"></a>
             <article class="property">
-                <h3 class="protected ">$format</h3>
+                <h3 class="protected "><span class="instance"></span>$format</h3>
                 <pre class="signature">$format : string</pre>
-                <p><em>Response format (csv,xml,json,jsonp).</em></p>
+                <p><em></em></p>
                 
 
                                 <h4>Type</h4>
                 string
-                                            </article>
+                &mdash; Response format (csv,xml,json,jsonp).                            </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
@@ -480,14 +482,14 @@
         <div class="span8 content class">
             <a id="property_scheme" name="property_scheme" class="anchor"></a>
             <article class="property">
-                <h3 class="protected ">$scheme</h3>
+                <h3 class="protected "><span class="instance"></span>$scheme</h3>
                 <pre class="signature">$scheme : string</pre>
-                <p><em>URL scheme to use (https or http).</em></p>
+                <p><em></em></p>
                 
 
                                 <h4>Type</h4>
                 string
-                                            </article>
+                &mdash; URL scheme to use (https or http).                            </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
@@ -504,14 +506,14 @@
         <div class="span8 content class">
             <a id="property_ipaddress" name="property_ipaddress" class="anchor"></a>
             <article class="property">
-                <h3 class="protected ">$ipaddress</h3>
+                <h3 class="protected "><span class="instance"></span>$ipaddress</h3>
                 <pre class="signature">$ipaddress : string</pre>
-                <p><em>IP address to reverse geocode.</em></p>
+                <p><em></em></p>
                 
 
                                 <h4>Type</h4>
                 string
-                                            </article>
+                &mdash; IP address to reverse geocode.                            </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
@@ -528,14 +530,14 @@
         <div class="span8 content class">
             <a id="property_domain" name="property_domain" class="anchor"></a>
             <article class="property">
-                <h3 class="protected ">$domain</h3>
+                <h3 class="protected "><span class="instance"></span>$domain</h3>
                 <pre class="signature">$domain : string</pre>
-                <p><em>Domain to reverse geocode.</em></p>
+                <p><em></em></p>
                 
 
                                 <h4>Type</h4>
                 string
-                                            </article>
+                &mdash; Domain to reverse geocode.                            </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
@@ -559,7 +561,7 @@
         <div class="span8 content class">
             <a id="method___construct" name="method___construct" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">__construct()</h3>
+                <h3 class="public "><span class="instance"></span>__construct()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">__construct(string  <span class="argument">$ipaddress = &#039;&#039;</span>, string  <span class="argument">$domain = &#039;&#039;</span>, string  <span class="argument">$format = self::FORMAT_JSON</span>) : \FreeGoIP</pre>
                 <p><em>Constructor. The request is not executed until `queryLocation()` is called.</em></p>
@@ -605,10 +607,10 @@
         <div class="span8 content class">
             <a id="method_setFormat" name="method_setFormat" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">setFormat()</h3>
+                <h3 class="public "><span class="instance"></span>setFormat()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">setFormat(string  <span class="argument">$format</span>) : \FreeGoIP</pre>
-                <p><em>Set the response format to use for reverse geocoding.</em></p>
+                <pre class="signature" style="margin-right: 54px;">setFormat(string  <span class="argument">$format = &#039;json&#039;</span>) : \FreeGoIP</pre>
+                <p><em>Set the response format to use for reverse geocoding (csv,xml,json,jsonp)</em></p>
                 
 
                                     <h4>Parameters</h4>
@@ -632,7 +634,14 @@
                                                                             </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                                    <tr>
+                        <th>
+                            default
+                        </th>
+                        <td>
+                                                                                            <p>'json'</p>
+                                                    </td>
+                    </tr>
                             </table>
         </aside>
     </div>
@@ -641,10 +650,10 @@
         <div class="span8 content class">
             <a id="method_getFormat" name="method_getFormat" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">getFormat()</h3>
+                <h3 class="public "><span class="instance"></span>getFormat()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getFormat() : string</pre>
-                <p><em>Get the response format to use for reverse geocoding.</em></p>
+                <p><em>Get the response format to use for reverse geocoding (csv,xml,json,jsonp).</em></p>
                 
 
                 
@@ -670,10 +679,10 @@
         <div class="span8 content class">
             <a id="method_isFormatJSON" name="method_isFormatJSON" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">isFormatJSON()</h3>
+                <h3 class="public "><span class="instance"></span>isFormatJSON()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">isFormatJSON() : boolean</pre>
-                <p><em>Whether the response format is JSON.</em></p>
+                <p><em>Returns whether the current response format is JSON.</em></p>
                 
 
                 
@@ -698,10 +707,10 @@
         <div class="span8 content class">
             <a id="method_isFormatXML" name="method_isFormatXML" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">isFormatXML()</h3>
+                <h3 class="public "><span class="instance"></span>isFormatXML()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">isFormatXML() : boolean</pre>
-                <p><em>Whether the response format is XML.</em></p>
+                <p><em>Returns whether the current response format is XML.</em></p>
                 
 
                 
@@ -726,10 +735,10 @@
         <div class="span8 content class">
             <a id="method_isFormatCSV" name="method_isFormatCSV" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">isFormatCSV()</h3>
+                <h3 class="public "><span class="instance"></span>isFormatCSV()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">isFormatCSV() : boolean</pre>
-                <p><em>Whether the response format is CSV.</em></p>
+                <p><em>Returns whether the current response format is CSV.</em></p>
                 
 
                 
@@ -754,7 +763,7 @@
         <div class="span8 content class">
             <a id="method_setIPAddress" name="method_setIPAddress" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">setIPAddress()</h3>
+                <h3 class="public "><span class="instance"></span>setIPAddress()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">setIPAddress(string  <span class="argument">$ipaddress</span>) : \FreeGoIP</pre>
                 <p><em>Set the IP address to reverse geocode.</em></p>
@@ -790,7 +799,7 @@
         <div class="span8 content class">
             <a id="method_getIPAddress" name="method_getIPAddress" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">getIPAddress()</h3>
+                <h3 class="public "><span class="instance"></span>getIPAddress()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getIPAddress() : string</pre>
                 <p><em>Get the IP address to reverse geocode.</em></p>
@@ -819,7 +828,7 @@
         <div class="span8 content class">
             <a id="method_setDomain" name="method_setDomain" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">setDomain()</h3>
+                <h3 class="public "><span class="instance"></span>setDomain()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">setDomain(string  <span class="argument">$domain</span>) : \FreeGoIP</pre>
                 <p><em>Set the domain to reverse geocode.</em></p>
@@ -855,7 +864,7 @@
         <div class="span8 content class">
             <a id="method_getDomain" name="method_getDomain" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">getDomain()</h3>
+                <h3 class="public "><span class="instance"></span>getDomain()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getDomain() : string</pre>
                 <p><em>Get the domain to reverse geocode.</em></p>
@@ -884,7 +893,7 @@
         <div class="span8 content class">
             <a id="method_setScheme" name="method_setScheme" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">setScheme()</h3>
+                <h3 class="public "><span class="instance"></span>setScheme()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">setScheme(string  <span class="argument">$scheme</span>) : \FreeGoIP</pre>
                 <p><em>Set the URL scheme to use.</em></p>
@@ -920,7 +929,7 @@
         <div class="span8 content class">
             <a id="method_getScheme" name="method_getScheme" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">getScheme()</h3>
+                <h3 class="public "><span class="instance"></span>getScheme()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getScheme() : string</pre>
                 <p><em>Get the URL scheme to use.</em></p>
@@ -949,12 +958,12 @@
         <div class="span8 content class">
             <a id="method_queryReverseGeocoding" name="method_queryReverseGeocoding" class="anchor"></a>
             <article class="method">
-                <h3 class="public ">queryReverseGeocoding()</h3>
+                <h3 class="public "><span class="instance"></span>queryReverseGeocoding()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">queryReverseGeocoding(boolean  <span class="argument">$raw = false</span>, resource  <span class="argument">$context = null</span>) : string|array|\SimpleXMLElement</pre>
                 <p><em>Execute the reverse geocoding request. The return type is based on the requested
-format: associative array if JSON or CSV, SimpleXMLElement object if XML.</em></p>
-                
+format: associative array if JSON or CSV, SimpleXMLElement object if XML. If raw is true, the raw string response will be returned.</em></p>
+                <p>Queries are performed using cURL and, if not available, using file_get_contents()</p>
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
@@ -973,16 +982,14 @@ format: associative array if JSON or CSV, SimpleXMLElement object if XML.</em></
                 
                                     <h4>Returns</h4>
                     string|array|\SimpleXMLElement
-                                            &mdash; <p>response in requested format</p>
+                                            &mdash; <p>The geocoding response in requested format</p>
                                     				
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
-                                                                                            <dt>See also</dt>
-                                                                <dd><a href="http://www.freegeoip.net/"><span class="namespace-wrapper">http://www.freegeoip.net/</span></a></dd>
-                                                                </dl>
+                                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -994,7 +1001,7 @@ format: associative array if JSON or CSV, SimpleXMLElement object if XML.</em></
         <div class="span8 content class">
             <a id="method_getURLPath" name="method_getURLPath" class="anchor"></a>
             <article class="method">
-                <h3 class="protected ">getURLPath()</h3>
+                <h3 class="protected "><span class="instance"></span>getURLPath()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">getURLPath() : string</pre>
                 <p><em>Build the query URL path with all set parameters geocoding request.</em></p>
@@ -1004,16 +1011,14 @@ format: associative array if JSON or CSV, SimpleXMLElement object if XML.</em></
                 
                                     <h4>Returns</h4>
                     string
-                                            &mdash; <p>encoded query string of the timezone request</p>
+                                            &mdash; <p>Encoded query string of the timezone request</p>
                                     				
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
-                                                                                            <dt>See also</dt>
-                                                                <dd><a href="http://www.freegeoip.net"><span class="namespace-wrapper">http://www.freegeoip.net</span></a></dd>
-                                                                </dl>
+                                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1025,7 +1030,7 @@ format: associative array if JSON or CSV, SimpleXMLElement object if XML.</em></
         <div class="span8 content class">
             <a id="method_geocodeURL" name="method_geocodeURL" class="anchor"></a>
             <article class="method">
-                <h3 class="protected ">geocodeURL()</h3>
+                <h3 class="protected "><span class="instance"></span>geocodeURL()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">geocodeURL() : string</pre>
                 <p><em>Build the URL (with query string) of the timezone request.</em></p>
@@ -1042,9 +1047,7 @@ format: associative array if JSON or CSV, SimpleXMLElement object if XML.</em></
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
-                                                                                            <dt>See also</dt>
-                                                                <dd><a href="http://www.freegeoip.net"><span class="namespace-wrapper">http://www.freegeoip.net</span></a></dd>
-                                                                </dl>
+                                                                            </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
                                     <tr><td colspan="2"><em>None found</em></td></tr>
@@ -1064,20 +1067,12 @@ format: associative array if JSON or CSV, SimpleXMLElement object if XML.</em></
             <pre data-src="../files/freegoip.php.txt" class="language-php line-numbers"></pre>
         </div>
     </div>
-
     <footer class="row-fluid">
         <section class="span10 offset2">
             <section class="row-fluid">
                 <section class="span10 offset1">
                     <section class="row-fluid footer-sections">
-                        <section class="span4">
-                                                        <h1><i class="icon-code"></i></h1>
-                            <div>
-                                <ul>
-                                                                    </ul>
-                            </div>
-                        </section>
-                        <section class="span4">
+                                                <section class="span4">
                                                         <h1><i class="icon-bar-chart"></i></h1>
                             <div>
                                 <ul>
@@ -1100,8 +1095,7 @@ format: associative array if JSON or CSV, SimpleXMLElement object if XML.</em></
             <section class="row-fluid">
                 <section class="span10 offset1">
                     <hr />
-                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on September 6th, 2016 at 23:45.
+                    Documentation is powered by phpDocumentor and authored  by <a target="_blank" href="https://imelgrat.me">Iv&aacute;n Melgrati</a> on February 25th, 2018 at 21:31.
                 </section>
             </section>
         </section>

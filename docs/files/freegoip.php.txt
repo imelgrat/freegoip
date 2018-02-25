@@ -1,27 +1,23 @@
 <?php
-	/**
-	 * A PHP wrapper for FreeGoIP reverse geocoding API.
-	 *
-	 * @package FreeGoIP
-	 * @author    Ivan Melgrati
-	 * @version   v1.0.0 stable 
-	 */
-
 	if (!class_exists('FreeGoIP'))
 	{
 		/**
 		 * A PHP wrapper for FreeGoIP reverse geocoding API.
-		 * 
-		 * @author    Ivan Melgrati
-		 * @copyright Copyright 2016 by Ivan Melgrati
-		 * @link      https://github.com/imelgrat/freegoip/blob/master/LICENSE
+         * 
+         * freegeoip.net is a service providing a public HTTP API for software developers to search the geolocation of IP addresses. 
+         * It uses a database of IP addresses associated to cities along with other relevant information such as time zone, latitude and longitude.
+         * The freegeoip web server is free and open source but the public service limit up to 10,000 queries per hour by default. Once this limit is reached, all requests from the IP will result in HTTP 403, forbidden, until the quota is cleared.
+         * 
+		 * @author Ivan Melgrati
+		 * @copyright 2018
+		 * @package    FreeGoIP
+		 * @version    v1.2.0
 		 * @link      http://www.freegeoip.net/
-		 * @version   v1.0.0 stable 
 		 */
 		class FreeGoIP
 		{
 			/**
-			 * URL_DOMAIN Domain portion of the freeGoIP API URL.
+			 * Domain portion of the freeGoIP API URL.
 			 */
 			const URL_DOMAIN = "www.freegeoip.net";
 
@@ -56,34 +52,26 @@
 			const FORMAT_CSV = "csv";
 
 			/**
-			 * Response format (csv,xml,json,jsonp).
-			 * 
 			 * @access protected
-			 * @var string $format
+			 * @var string $format Response format (csv,xml,json,jsonp).
 			 */
 			protected $format = 'json';
 
 			/**
-			 * URL scheme to use (https or http).
-			 * 
 			 * @access protected
-			 * @var string $scheme
+			 * @var string $scheme URL scheme to use (https or http).
 			 */
 			protected $scheme = 'https';
 
 			/**
-			 * IP address to reverse geocode.
-			 * 
 			 * @access protected
-			 * @var string $ipaddress
+			 * @var string $ipaddress IP address to reverse geocode.
 			 */
 			protected $ipaddress = '';
 
 			/**
-			 * Domain to reverse geocode.
-			 * 
 			 * @access protected
-			 * @var string $domain
+			 * @var string $domain Domain to reverse geocode.
 			 */
 			protected $domain = '';
 
@@ -102,12 +90,13 @@
 			}
 
 			/**
-			 * Set the response format to use for reverse geocoding.
+			 * Set the response format to use for reverse geocoding (csv,xml,json,jsonp)
 			 *
 			 * @param  string $format response format
 			 * @return FreeGoIP
+			 * @default 'json'
 			 */
-			public function setFormat($format)
+			public function setFormat($format = 'json')
 			{
 				$format = strtolower(trim($format));
 
@@ -127,7 +116,7 @@
 			}
 
 			/**
-			 * Get the response format to use for reverse geocoding.
+			 * Get the response format to use for reverse geocoding (csv,xml,json,jsonp).
 			 *
 			 * @return string response format
 			 */
@@ -138,7 +127,7 @@
 
 
 			/**
-			 * Whether the response format is JSON.
+			 * Returns whether the current response format is JSON.
 			 *
 			 * @return bool 
 			 */
@@ -148,7 +137,7 @@
 			}
 
 			/**
-			 * Whether the response format is XML.
+			 * Returns whether the current response format is XML.
 			 *
 			 * @return bool 
 			 */
@@ -158,7 +147,7 @@
 			}
 
 			/**
-			 * Whether the response format is CSV.
+			 * Returns whether the current response format is CSV.
 			 *
 			 * @return bool 
 			 */
@@ -206,7 +195,7 @@
 			public function setDomain($domain)
 			{
                 $parse = parse_url($domain);
-                $domain = $parse['host'];
+                $domain = @$parse['host'];
 				if (preg_match('/^(?:[-A-Za-z0-9]+\.)+[A-Za-z]{2,6}$/', $domain))
 				{
 					$this->domain = $domain;
@@ -264,8 +253,7 @@
 			/**
 			 * Build the query URL path with all set parameters geocoding request.
 			 *
-			 * @link   http://www.freegeoip.net
-			 * @return string encoded query string of the timezone request
+			 * @return string Encoded query string of the timezone request
 			 */
 			protected function getURLPath()
 			{
@@ -298,7 +286,6 @@
 			/**
 			 * Build the URL (with query string) of the timezone request.
 			 *
-			 * @link   http://www.freegeoip.net
 			 * @return string URL of the timezone request
 			 */
 			protected function geocodeURL()
@@ -312,16 +299,37 @@
 
 			/**
 			 * Execute the reverse geocoding request. The return type is based on the requested
-			 * format: associative array if JSON or CSV, SimpleXMLElement object if XML.
+			 * format: associative array if JSON or CSV, SimpleXMLElement object if XML. If raw is true, the raw string response will be returned.
+			 * Queries are performed using cURL and, if not available, using file_get_contents()
 			 *
-			 * @link   http://www.freegeoip.net/
 			 * @param  bool $raw whether to return the raw (string) response
 			 * @param  resource $context stream context from `stream_context_create()`
-			 * @return string|array|SimpleXMLElement response in requested format
+			 * @return string|array|SimpleXMLElement The geocoding response in requested format
 			 */
 			public function queryReverseGeocoding($raw = false, $context = null)
 			{
-				$response = file_get_contents($this->geocodeURL(), false, $context);
+				if  (in_array  ('curl', get_loaded_extensions())) 
+				{
+					$options = array(
+						CURLOPT_RETURNTRANSFER => true,   // return web page
+						CURLOPT_HEADER         => false,  // don't return headers
+						CURLOPT_FOLLOWLOCATION => true,   // follow redirects
+						CURLOPT_MAXREDIRS      => 10,     // stop after 10 redirects
+						CURLOPT_ENCODING       => "",     // handle compressed
+						CURLOPT_USERAGENT      => "test", // name of client
+						CURLOPT_AUTOREFERER    => true,   // set referrer on redirect
+						CURLOPT_CONNECTTIMEOUT => 120,    // time-out on connect
+						CURLOPT_TIMEOUT        => 120,    // time-out on response
+					); 
+
+					$ch = curl_init($this->timezoneUrl());
+					curl_setopt_array($ch, $options);
+					$response  = curl_exec($ch);
+				}
+				else 
+				{
+					$response = file_get_contents($this->timezoneUrl(), false, $context);
+				}
 
 				if ($raw)
 				{
@@ -347,3 +355,4 @@
 		}
 	}
 ?>
+

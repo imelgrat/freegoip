@@ -4,10 +4,9 @@
      * The code below query performs a reverse geocoding request of IP 8.8.8.8 (One of Google's DNS servers)
      * 
      * @author Ivan Melgrati
-	 * @copyright 2016
+	 * @copyright 2018
 	 * @package    FreeGoIP
-	 * @author     Ivan Melgrati
-	 * @version    v1.0.0 stable 
+	 * @version    v1.2.0
 	 */
 
 	require_once ('../src/freegoip.php');

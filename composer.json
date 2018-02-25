@@ -1,7 +1,7 @@
 {
     "name": "imelgrat/freegoip",
     "type": "library",
-    "version" : "1.1.0",
+    "version" : "1.2.0",
     "description": "FreeGoIP - A PHP wrapper for FreeGoIP reverse geolocation API.",
     "keywords": ["geocoding", "geolocation", "API", "timezone", "time-zone", "reverse geocoding", "time zone", "latitude", "longitude"],
     "homepage": "https://github.com/imelgrat/freegoip",
