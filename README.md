@@ -14,7 +14,7 @@ It uses a database of IP addresses associated to cities along with other relevan
 
 The freegeoip web server is free and open source but the public service limit up to 10,000 queries per hour by default. Once this limit is reached, all requests from the IP will result in HTTP 403, forbidden, until the quota is cleared.
 
-Developed by [Ivan Melgrati](https://twitter.com/imelgrat) 
+Developed by [Ivan Melgrati](https://imelgrat.me) [![Twitter](https://img.shields.io/twitter/url/https/github.com/imelgrat/tab-collapse.svg?style=social)](https://twitter.com/imelgrat)
 
 Requirements
 ------------
